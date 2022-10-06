@@ -183,3 +183,7 @@ fabric.properties
 
 # idea folder, uncomment if you don't need it
 # .idea
+
+
+client_secret.json
+token_calendar_v3.pickle
