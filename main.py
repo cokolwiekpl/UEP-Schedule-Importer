@@ -16,6 +16,7 @@ calendar_Id = newCalendarCreator.return_calendar_id(newCalendarCreator.create_ne
 
 name = 'Techn.i systemy multimedialne'
 location = '1.17 CEUE'
+semester_end = currentAcademicSemester.semester_end
 
 event = {
     'summary': name,
@@ -29,7 +30,7 @@ event = {
         'timeZone': 'Europe/Warsaw',
     },
     'recurrence': [
-        'RRULE:FREQ=WEEKLY;UNTIL=20221030T170000Z'  # yyyymmdd
+        'RRULE:FREQ=WEEKLY;UNTIL=' + semester_end + 'T170000Z'  # yyyymmdd
     ],
 }
 
