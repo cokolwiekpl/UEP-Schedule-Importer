@@ -17,7 +17,16 @@ def return_subject_list(schedule):
                                                    thursday_coordinates,
                                                    friday_coordinates,
                                                    subject_coordinates_list)
-    print(week_schedule_list)
+    # print(week_schedule_list)
+    clear_week_schedule_list(week_schedule_list)
+
+
+def clear_week_schedule_list(week_schedule_list): # to można użyć w create_week_schedule_list
+    for day in week_schedule_list:
+        print(day)
+        for i in day:
+            print(i)
+            # łączyć pomiędzy godziną, a salą, a nazwie budynku usuwać do godziny
 
 
 def create_week_schedule_list(monday_coordinates,
@@ -26,11 +35,11 @@ def create_week_schedule_list(monday_coordinates,
                               thursday_coordinates,
                               friday_coordinates,
                               subject_coordinates_list):
-    monday_schedule_list = []
-    tuesday_schedule_list = []
-    wednesday_schedule_list = []
-    thursday_schedule_list = []
-    friday_schedule_list = []
+    monday_schedule_list = ['monday']
+    tuesday_schedule_list = ['tuesday']
+    wednesday_schedule_list = ['wednesday']
+    thursday_schedule_list = ['thursday']
+    friday_schedule_list = ['friday']
     for x in subject_coordinates_list:
         if monday_coordinates + 50 > x[0] > monday_coordinates - 50:
             monday_schedule_list.append(x[1])
