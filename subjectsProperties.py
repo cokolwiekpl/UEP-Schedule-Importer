@@ -18,15 +18,43 @@ def return_subject_list(schedule):
                                                    friday_coordinates,
                                                    subject_coordinates_list)
     # print(week_schedule_list)
-    clear_week_schedule_list(week_schedule_list)
+    # clear_week_schedule_list(week_schedule_list)
 
-
-def clear_week_schedule_list(week_schedule_list): # to można użyć w create_week_schedule_list
+    ##############################################################
+    # MICHAŁ ZOBACZ TUTAJ, JAK WYPRINTUJE SIĘ TĄ LISTĘ TO DUPLIKUJĄ SIĘ INDEXY, A NIE CHCIAŁBY, ABY TAK BYŁO :(
+    # PATRZ NP WE WTOREK 4 I 15 ALBO 5 I 17 TZN NIE MA 15 I 17
     for day in week_schedule_list:
         print(day)
         for i in day:
+            print('element: ' + i)
+            print('index:' + str(day.index(i)))
+
+
+# ##################################################3
+
+
+def clear_week_schedule_list(week_schedule_list):
+    for day in week_schedule_list:
+        subject_name_merge = []
+        location_name_merge = []
+        print(day)
+        for i in day:
             print(i)
-            # łączyć pomiędzy godziną, a salą, a nazwie budynku usuwać do godziny
+            print(day.index(i))
+            if len(i) >= 9:
+                if i[2] == ':' and i[5] == '-' and i[8] == ':':
+                    subject_name_merge.append(day.index(i) + 1)
+            if i == '(Wyk)' or i == '(Lab)' or i == '(Ćwi)':
+                subject_name_merge.append(day.index(i))
+                location_name_merge.append(day.index(i) + 1)
+            if i == 'CEUE' or i == 'A':
+                location_name_merge.append(day.index(i))
+                print(day.index(i))
+                subject_name_merge.append('stop')
+                location_name_merge.append('stop')
+
+        print(subject_name_merge)
+        print(location_name_merge)
 
 
 def create_week_schedule_list(monday_coordinates,
@@ -44,7 +72,7 @@ def create_week_schedule_list(monday_coordinates,
         if monday_coordinates + 50 > x[0] > monday_coordinates - 50:
             monday_schedule_list.append(x[1])
         if tuesday_coordinates + 50 > x[0] > tuesday_coordinates - 50:
-            tuesday_schedule_list.append(x[1])
+            tuesday_schedule_list.append(x[1])  # MICHAŁ TUTAJ DODAJE SIĘ DO LISTY
         if wednesday_coordinates + 50 > x[0] > wednesday_coordinates - 50:
             wednesday_schedule_list.append(x[1])
         if thursday_coordinates + 50 > x[0] > thursday_coordinates - 50:
@@ -79,7 +107,7 @@ def clear_words_dict_list(words_dict_list):
 
 def read_pdf(schedule):
     with fitz.open(
-            'plan.pdf') as document:  # z tego sprawdzić które zajęcia do którego dnia (na podstawie pierwszej zmiennej
+            'plan.pdf') as document:
         words_dict = {}
         for page_number, page in enumerate(document):
             words = page.get_text("words")
