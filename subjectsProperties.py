@@ -9,56 +9,56 @@ def return_subject_list(schedule):
     wednesday_coordinates = read_day_coordinates(words_dict_list, 'wednesday')
     thursday_coordinates = read_day_coordinates(words_dict_list, 'thursday')
     friday_coordinates = read_day_coordinates(words_dict_list, 'friday')
-    subject_coordinates_list = clear_list(words_dict_list)
-    print(words_dict_list)
-    print(monday_coordinates)
-    print(tuesday_coordinates)
-    print(wednesday_coordinates)
-    print(thursday_coordinates)
-    print(friday_coordinates)
-    print('----')
+    subject_coordinates_list = clear_words_dict_list(words_dict_list)
+
+    week_schedule_list = create_week_schedule_list(monday_coordinates,
+                                                   tuesday_coordinates,
+                                                   wednesday_coordinates,
+                                                   thursday_coordinates,
+                                                   friday_coordinates,
+                                                   subject_coordinates_list)
+    print(week_schedule_list)
+
+
+def create_week_schedule_list(monday_coordinates,
+                              tuesday_coordinates,
+                              wednesday_coordinates,
+                              thursday_coordinates,
+                              friday_coordinates,
+                              subject_coordinates_list):
+    monday_schedule_list = []
+    tuesday_schedule_list = []
+    wednesday_schedule_list = []
+    thursday_schedule_list = []
+    friday_schedule_list = []
     for x in subject_coordinates_list:
-        print(x)
-    print('----')
-
-    create_tuesday_schedule_list(tuesday_coordinates, subject_coordinates_list)
-
-
-def create_monday_schedule_list(monday_coordinates, subject_coordinates_list):
-    print('monday')
-
-
-def create_tuesday_schedule_list(tuesday_coordinates, subject_coordinates_list):
-    for x in subject_coordinates_list:
+        if monday_coordinates + 50 > x[0] > monday_coordinates - 50:
+            monday_schedule_list.append(x[1])
         if tuesday_coordinates + 50 > x[0] > tuesday_coordinates - 50:
-            # 192 < 249 or 192 > 149
-            print(x)
-
-    # print(x)
-    print('tuesday')
-
-
-def create_wednesday_schedule_list(wednesday_coordinates, subject_coordinates_list):
-    print('wednesday')
-
-
-def create_thursday_schedule_list(thursday_coordinates, subject_coordinates_list):
-    print('thursday')
-
-
-def create_friday_schedule_list(friday_coordinates, subject_coordinates_list):
-    print('friday')
+            tuesday_schedule_list.append(x[1])
+        if wednesday_coordinates + 50 > x[0] > wednesday_coordinates - 50:
+            wednesday_schedule_list.append(x[1])
+        if thursday_coordinates + 50 > x[0] > thursday_coordinates - 50:
+            thursday_schedule_list.append(x[1])
+        if friday_coordinates + 50 > x[0] > friday_coordinates - 50:
+            friday_schedule_list.append(x[1])
+    week_schedule_list = [monday_schedule_list,
+                          tuesday_schedule_list,
+                          wednesday_schedule_list,
+                          thursday_schedule_list,
+                          friday_schedule_list]
+    return week_schedule_list
 
 
-def clear_top_list(list_to_clear):
-    for x in list_to_clear:
+def clear_top_words_dict_list(words_dict_list):
+    for x in words_dict_list:
         if x[4] == 'Poniedziałek':
-            for i in range(0, list_to_clear.index(x)):
-                del list_to_clear[0]
-    return list_to_clear
+            for i in range(0, words_dict_list.index(x)):
+                del words_dict_list[0]
+    return words_dict_list
 
 
-def clear_list(words_dict_list):
+def clear_words_dict_list(words_dict_list):
     subject_list_with_coordinates = []
     for x in words_dict_list:
         subject_coordinates = x[0], x[4]
@@ -76,7 +76,7 @@ def read_pdf(schedule):
             words = page.get_text("words")
             words_dict[page_number] = words
 
-    words_dict_list = clear_top_list(words_dict.get(0))  # words_dict.get(0)
+    words_dict_list = clear_top_words_dict_list(words_dict.get(0))  # words_dict.get(0)
     return words_dict_list
 
 
