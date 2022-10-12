@@ -6,7 +6,7 @@ import eventAdder
 import newCalendarCreator
 import subjectsProperties
 
-subjects_list = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '2022-10-08T13:00:00'],
+subject_list = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '2022-10-08T13:00:00'],
                  ['nazwa przedmiotu 2', 'CEUE 2', '2022-10-09T12:00:00', '2022-10-09T13:00:00']]
 
 # calendar_id = newCalendarCreator.return_calendar_id(newCalendarCreator.create_new_calendar())
@@ -14,7 +14,7 @@ subjects_list = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '2022-1
 #################################################################################
 
 # subjectsProperties.return_subject_list('plan.pdf')
-subjectsProperties.read_pdf_table('plan.pdf')
+subjectsProperties.create_raw_subject_list('plan.pdf')
 
 # file = 'plan.pdf'
 # stream = True
