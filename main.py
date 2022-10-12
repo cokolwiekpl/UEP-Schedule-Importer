@@ -1,5 +1,6 @@
 import fitz
-
+from tabula import read_pdf
+from pandas import *
 #################################################################################
 import eventAdder
 import newCalendarCreator
@@ -12,6 +13,24 @@ subjects_list = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '2022-1
 # eventAdder.add_events(subjects_list, calendar_id)
 #################################################################################
 
-subjectsProperties.return_subject_list('plan.pdf')
+# subjectsProperties.return_subject_list('plan.pdf')
+subjectsProperties.read_pdf_table('plan.pdf')
+
+# file = 'plan.pdf'
+# stream = True
+# output_format = 'DataFrame'
+# df_temp = read_pdf(file, stream=stream, output_format=output_format)
+# schedule = df_temp[0]
+# schedule.head()
+# schedule.to_csv('output.csv')
+
+# def read_pdf_table(file, stream, output_format):
+#     df_temp = read_pdf(file, stream=stream, output_format=output_format)
+#     schedule = df_temp[0]
+#     schedule.head()
+#     schedule.to_csv('output.csv')
+#
+#
+# read_pdf_table('plan.pdf', True, 'DataFrame')
 
 
