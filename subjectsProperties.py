@@ -31,7 +31,7 @@ subject_list_tat = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '202
 
 def create_raw_subject_list(schedule_pdf):
     week_schedule_list = read_pdf_table(schedule_pdf)
-    subject_list = []
+    subject_properties_list = []
 
     for day in week_schedule_list:
         for i in day:
@@ -70,7 +70,27 @@ def create_raw_subject_list(schedule_pdf):
                     subject_properties = [subject_name, subject_location, subject_start, subject_end]
                     # print(subject_properties)
 
-                    subject_list.append(subject_properties)
+                    subject_properties_list.append(subject_properties)
                     # print(subject_list)
-    for i in subject_list:
-        print(i)
+    return subject_properties_list
+
+
+def create_subject_list(schedule_pdf, semester_start_week):
+    subject_properties_list = create_raw_subject_list(schedule_pdf)
+    for i in subject_properties_list:
+        if 'monday' in i[2]:
+            i[2] = i[2].replace("monday", semester_start_week[0])
+            i[3] = i[3].replace("monday", semester_start_week[0])
+        if 'tuesday' in i[2]:
+            i[2] = i[2].replace("tuesday", semester_start_week[1])
+            i[3] = i[3].replace("tuesday", semester_start_week[1])
+        if 'wednesday' in i[2]:
+            i[2] = i[2].replace("wednesday", semester_start_week[2])
+            i[3] = i[3].replace("wednesday", semester_start_week[2])
+        if 'thursday' in i[2]:
+            i[2] = i[2].replace("thursday", semester_start_week[3])
+            i[3] = i[3].replace("thursday", semester_start_week[3])
+        if 'friday' in i[2]:
+            i[2] = i[2].replace("friday", semester_start_week[4])
+            i[3] = i[3].replace("friday", semester_start_week[4])
+    return subject_properties_list
