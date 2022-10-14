@@ -1,15 +1,7 @@
-from google_apis import create_service
 import currentAcademicSemester
 
-CLIENT_SECRET_FILE = 'client_secret.json'
-API_NAME = 'calendar'
-API_VERSION = 'v3'
-SCOPES = ['https://www.googleapis.com/auth/calendar']
 
-service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
-
-
-def create_new_calendar():
+def create_new_calendar(service):
     request_body_of_new_calendar = {
         'summary': currentAcademicSemester.current_semester
     }
@@ -17,7 +9,7 @@ def create_new_calendar():
     return currentAcademicSemester.current_semester
 
 
-def return_calendar_id(calendar_summary):
+def return_calendar_id(calendar_summary, service):
     response = service.calendarList().list().execute()
     calendar_list = response.get('items')
     calendar_summary_and_id_list = []

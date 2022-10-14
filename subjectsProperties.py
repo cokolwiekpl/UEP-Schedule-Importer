@@ -25,10 +25,6 @@ def read_pdf_table(file):
     return week_schedule_list
 
 
-subject_list_tat = [['nazwa przedmiotu 1', 'CEUE 1', '2022-10-08T12:00:00', '2022-10-08T13:00:00'],
-                    ['nazwa przedmiotu 2', 'CEUE 2', '2022-10-09T12:00:00', '2022-10-09T13:00:00']]
-
-
 def create_raw_subject_list(schedule_pdf):
     week_schedule_list = read_pdf_table(schedule_pdf)
     subject_properties_list = []
@@ -68,10 +64,8 @@ def create_raw_subject_list(schedule_pdf):
 
                 if subject_name != '':
                     subject_properties = [subject_name, subject_location, subject_start, subject_end]
-                    # print(subject_properties)
 
                     subject_properties_list.append(subject_properties)
-                    # print(subject_list)
     return subject_properties_list
 
 
