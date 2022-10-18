@@ -7,7 +7,7 @@ def read_pdf_table(file):
     schedule = df_temp[0]
     schedule.head()
     schedule.to_csv('output.csv')
-    data = read_csv("output.csv")
+    data = read_csv("../output.csv")
 
     raw_monday_schedule_list = data['Poniedziałek'].tolist()
     raw_tuesday_schedule_list = data['Wtorek'].tolist()
