@@ -20,7 +20,7 @@ def import_schedule(file):
     else:
         print('File is not UEP schedule')
 
-import_schedule('../plan.pdf')
+import_schedule('./plan.pdf')
 # def browseFiles():
 #     filename = filedialog.askopenfilename(initialdir="/",
 #                                           title="Select a File",
