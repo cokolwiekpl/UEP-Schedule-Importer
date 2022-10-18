@@ -1,9 +1,7 @@
-import eventAdder
-import newCalendarCreator
-import subjectsProperties
+from google_logic import newCalendarCreator, eventAdder
 import currentAcademicSemester
-import fileChecker
-from google_apis import create_service
+from pdf_logic import fileChecker, subjectsProperties
+from google_logic.google_apis import create_service
 
 CLIENT_SECRET_FILE = '../client_secret.json'
 API_NAME = 'calendar'
