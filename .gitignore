@@ -185,5 +185,5 @@ fabric.properties
 # .idea
 
 
-client_secret.json
-token_calendar_v3.pickle
+credentials.json
+token.json

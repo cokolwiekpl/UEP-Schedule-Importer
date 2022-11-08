@@ -1,24 +1,23 @@
 from google_logic import newCalendarCreator, eventAdder
 import currentAcademicSemester
 from pdf_logic import fileChecker, subjectsProperties
-from google_logic.google_apis import create_service
+from google_logic.service_creator import create_service
 
-CLIENT_SECRET_FILE = '../client_secret.json'
-API_NAME = 'calendar'
-API_VERSION = 'v3'
-SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
 def import_schedule(file):
     if fileChecker.check_file(file):
-        service = create_service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+        service = create_service()
         subject_list = subjectsProperties.create_subject_list(file, currentAcademicSemester.semester_start_week)
         calendar_id = newCalendarCreator.return_calendar_id(newCalendarCreator.create_new_calendar(service), service)
         eventAdder.add_events(subject_list, calendar_id, service)
+
     else:
         print('File is not UEP schedule')
 
+
 import_schedule('./plan.pdf')
+
 # def browseFiles():
 #     filename = filedialog.askopenfilename(initialdir="/",
 #                                           title="Select a File",
