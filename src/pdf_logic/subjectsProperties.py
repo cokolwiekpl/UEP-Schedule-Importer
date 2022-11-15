@@ -55,7 +55,7 @@ def create_raw_subject_list(schedule_pdf):
                         subject_end = 'fridayT' + subject_date[1] + ':00'
                     next_property = day[day.index(i) + 1]
 
-                    if "Lab" in next_property or "Ćwi" in next_property or "Wyk" in next_property:
+                    if "Lab" in next_property or "Ćwi" in next_property or "Wyk" in next_property or "Lek" in next_property:
                         subject_name = day[day.index(i) + 1]
                         subject_location = day[day.index(i) + 2]
                     else:
@@ -63,6 +63,8 @@ def create_raw_subject_list(schedule_pdf):
                         subject_location = day[day.index(i) + 3]
 
                 if subject_name != '':
+                    if subject_location == "harmonogram":
+                        subject_location = "Check Hornet"
                     subject_properties = [subject_name, subject_location, subject_start, subject_end]
 
                     subject_properties_list.append(subject_properties)
