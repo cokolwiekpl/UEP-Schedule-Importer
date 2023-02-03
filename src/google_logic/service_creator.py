@@ -9,7 +9,12 @@ from googleapiclient.errors import HttpError
 
 
 def create_service():
-    SCOPES = ['https://www.googleapis.com/auth/calendar']
+    SCOPES = ['https://www.googleapis.com/auth/calendar.app.created', #TODO: check if this is needed
+              'https://www.googleapis.com/auth/calendar.calendarlist.readonly',
+              'https://www.googleapis.com/auth/calendar.events.freebusy',
+              'https://www.googleapis.com/auth/calendar.events.public.readonly',
+              'https://www.googleapis.com/auth/calendar.settings.readonly',
+              'https://www.googleapis.com/auth/calendar.freebusy']
     creds = None
 
     token_path = 'resources/token.json'
