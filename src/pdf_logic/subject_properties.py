@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from tkinter import messagebox
 
 from gui.gui_notification import show_error_message
 
@@ -22,7 +21,7 @@ def create_raw_subject_list(week_schedule_list: list):
                 subject_location = ''
                 subject_start = ''
                 subject_end = ''
-                if i[2] == ':' and i[5] == '-' and i[8] == ':':  # zabezpieczyć jeśli jest mniej liter w stringu
+                if i[2] == ':' and i[5] == '-' and i[8] == ':':
                     subject_date = i.split("-")
                     if (week_schedule_list.index(day)) == 0:
                         subject_start = f"mondayT{subject_date[0]}:00"
