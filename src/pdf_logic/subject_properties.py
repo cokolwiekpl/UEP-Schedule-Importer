@@ -1,4 +1,7 @@
 from dataclasses import dataclass
+from tkinter import messagebox
+
+from gui.gui_notification import show_error_message
 
 
 @dataclass
@@ -74,4 +77,16 @@ def get_subject_list(week_schedule_list, semester_start_week):
             subject_end = subject_end.replace("friday", semester_start_week[4])
         subject.subject_start = subject_start
         subject.subject_end = subject_end
-    return subject_properties_list
+    return delete_nonstandard_subjects(subject_properties_list)
+
+
+def delete_nonstandard_subjects(subject_properties_list):
+    deleted_subjects_list = [s for s in subject_properties_list if "#" in s.subject_end]
+    if len(deleted_subjects_list) > 0:
+        show_error_message("Warning", "Obecna wersja programu nie obsługuje dodawania przedmiotów, które nie odbywają się regularnie.")
+
+    unique_deleted_subjects_list = list(set([s.subject_name for s in deleted_subjects_list]))
+    for subject in unique_deleted_subjects_list:
+        show_error_message("Error", f"Przedmiot {subject} nie został dodany ponieważ zajęcia nie odbywają się regularnie")
+
+    return [s for s in subject_properties_list if "#" not in s.subject_end]

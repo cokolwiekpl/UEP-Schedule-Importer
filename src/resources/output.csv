@@ -1,25 +1,43 @@
 ,Poniedziałek,Wtorek,Środa,Czwartek,Piątek
-0,,08:00-09:30,08:45-09:30,09:45-11:15,
-1,,Techn.informacyjne (Lab),Prawo (Wyk),Informatyka ekon. (Lab),
-2,,Sala 2.17 CEUE,Sala 301 A,Sala 4.12 CEUE,
-3,,Mgr inż. D. Strugała,Mgr M. Kalina-Nowaczyk,Dr M. Stróżyna,
-4,,11:30-13:00,09:45-11:15,11:30-13:00,
-5,,Matematyka I (Ćwi),Matematyka I (Wyk),Mat. fin. i ubezp. (Ćwi),
-6,,Sala 3.1 CEUE,Sala 301 A,Sala 3.1 CEUE,
-7,,Dr A. Rutkowska,Prof. dr hab. M. Matłoka,Mgr J. Morkowski,
-8,,13:10-13:55,,15:00-16:30,
-9,,Algorytmy i str.danych,,Informatyka ekon. (Wyk),
-10,,(Lab),,audyt. C CEUE,
-11,,Sala 2.17 CEUE,,Prof. dr hab. W.,
-12,,. Vacat KIE,,Abramowicz,
-13,,,,16:40-17:25,
-14,,,,Algorytmy i str.danych,
-15,,,,(Wyk),
-16,,,,audyt. C CEUE,
-17,,,,Prof. dr hab. W.,
-18,,,,Abramowicz,
-19,,,,17:30-19:00,
-20,,,,Techn.informacyjne (Wyk),
-21,,,,audyt. C CEUE,
-22,,,,"Dr hab. inż. A. Wójtowicz,",
-23,,,,prof. UEP,
+0,"08:00-08:45 # (31),(17d)",11:25-12:10,09:45-11:15,,"08:00-11:15 # (31),(17b)"
+1,Design thinking (Wyk),Podstawy ekonomii,Dynamika sys.ekonom.,,Design thinking (Wyk)
+2,Sala 0.7 CEUE,matematycznej (Ćwi),(Wyk),,Sala 218 C
+3,Dr A. Rutkowska,Sala 3.2 CEUE,Sala 3.2 CEUE,,Dr A. Rutkowska
+4,,Dr hab. J. Marcinkowski,Dr M. Naskręcka,,
+5,08:00-09:30 # (3),,,,"09:30-11:00 # (31),(17a)"
+6,Wprowadzenie do pakietu,12:30-14:45,18:30-20:00,,Design thinking (Wyk)
+7,stat. R (Wyk),Bazy danych (Lab),Pasmo międzykier. (Lek),,Sala 218 C
+8,Sala 4.13 CEUE,Sala 2.16 CEUE,harmonogram,,Dr A. Rutkowska
+9,"Dr M. Beręsewicz, prof.",Mgr P. Sobociński,. w hornecie,,
+10,UEP,,,,"11:30-14:45 # (32),(17b)"
+11,,15:00-16:30,,,Design thinking (Wyk)
+12,08:00-09:30 # (3),Język obcy I (Lek),,,Sala 218 C
+13,User experience (Wyk),harmonogram,,,Dr A. Rutkowska
+14,Sala 3.18 CEUE,. w hornecie,,,
+15,"Dr hab. K. Węcel, prof.",,,,"11:30-13:00 # (32),(17a)"
+16,UEP,16:45-18:15,,,Design thinking (Wyk)
+17,,Podstawy sztucznej,,,Sala 218 C
+18,"08:50-09:35 # (32),(17d)",inteligencji (Wyk),,,Dr A. Rutkowska
+19,Design thinking (Wyk),audyt. C CEUE,,,
+20,Sala 0.7 CEUE,Prof. dr hab. W.,,,
+21,Dr A. Rutkowska,Abramowicz,,,
+22,,Mgr M. Sawiński,,,
+23,09:45-11:15,,,,
+24,Anal.fin.w przeds. (Wyk),,,,
+25,Sala 0.11 CEUE,,,,
+26,"Dr hab. J. Rój, prof. UEP",,,,
+27,11:30-13:00,,,,
+28,Język obcy II (Lek),,,,
+29,harmonogram,,,,
+30,. w hornecie,,,,
+31,13:15-14:45,,,,
+32,Podstawy ekonomii,,,,
+33,matematycznej (Wyk),,,,
+34,audyt. C CEUE,,,,
+35,"Dr hab. M. Konopczyński,",,,,
+36,prof. UEP,,,,
+37,14:55-15:40,,,,
+38,Bazy danych (Wyk),,,,
+39,audyt. C CEUE,,,,
+40,"Dr inż. J. Flotyński, prof.",,,,
+41,UEP,,,,
