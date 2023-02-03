@@ -1,56 +1,24 @@
-from google_logic import newCalendarCreator, eventAdder
-import currentAcademicSemester
-from pdf_logic import fileChecker, subjectsProperties
+from google_logic.calendar_api_service import add_schedule_to_google_calendar
 from google_logic.service_creator import create_service
+from pdf_logic.pdf_reader import check_pdf_file, read_pdf_file, read_semester, read_week_schedule_list_from_pdf
+from pdf_logic.semester_properties import get_current_semester
+from pdf_logic.subject_properties import get_subject_list
 
 
-
-def import_schedule(file):
-    if fileChecker.check_file(file):
+def import_schedule(file_path):
+    pdf_file = read_pdf_file(file_path)
+    if check_pdf_file(pdf_file):
+        current_semester = get_current_semester(read_semester(pdf_file))
         service = create_service()
-        subject_list = subjectsProperties.create_subject_list(file, currentAcademicSemester.semester_start_week)
-        calendar_id = newCalendarCreator.return_calendar_id(newCalendarCreator.create_new_calendar(service), service)
-        eventAdder.add_events(subject_list, calendar_id, service)
-
+        subject_list = get_subject_list(read_week_schedule_list_from_pdf(file_path), current_semester.semester_start_week)
+        add_schedule_to_google_calendar(service, subject_list, current_semester)
     else:
         print('File is not UEP schedule')
 
 
-import_schedule('./plan.pdf')
+def main():
+    import_schedule('plan.pdf')
 
-# def browseFiles():
-#     filename = filedialog.askopenfilename(initialdir="/",
-#                                           title="Select a File",
-#                                           filetypes=[('pdf file', '*.pdf')])
-#
-#     if filename:
-#         ctypes.windll.user32.MessageBoxW(0, "Work in progress, it can take a while.", "Uep Schedule Importer", 1)
-#         import_schedule(filename)
-#         label_file_explorer.configure(text="Schedule imported")
-#         print(filename)
-#
-#
-# window = Tk()
-# window.title('Uep Schedule Importer')
-# window.geometry("500x500")
-# window.config(background="white")
-#
-# label_file_explorer = Label(window,
-#                             text="Add schedule file",
-#                             width=100, height=4,
-#                             fg="blue")
-#
-# button_explore = Button(window,
-#                         text="Browse Files",
-#                         command=browseFiles)
-#
-# # button_exit = Button(window,
-# #                    text="Exit",
-# #                    command=exit)
-#
-#
-# label_file_explorer.grid(column=1, row=1)
-# button_explore.grid(column=1, row=2)
-# # button_exit.grid(column=1, row=3)
-# window.mainloop()
-#
+
+if __name__ == "__main__":
+    main()
