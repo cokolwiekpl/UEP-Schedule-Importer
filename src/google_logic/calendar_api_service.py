@@ -41,4 +41,5 @@ def add_schedule_to_google_calendar(service, subject_list, current_semester):
                 'RRULE:FREQ=WEEKLY;UNTIL=' + semester_end + 'T170000Z'  # yyyymmdd
             ],
         }
-    service.events().insert(calendarId=calendar_id, body=event).execute()
+        service.events().insert(calendarId=calendar_id, body=event).execute()
+    return True
