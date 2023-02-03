@@ -35,8 +35,8 @@ def read_week_schedule_list_from_pdf(file_path: str) -> list:
     schedule = df_temp[0]
     schedule.head()
 
-    schedule.to_csv('output.csv')
-    data = read_csv("./output.csv")
+    schedule.to_csv('resources/output.csv')
+    data = read_csv("resources/output.csv")
     type(data)
 
     raw_monday_schedule_list = data['Poniedziałek'].tolist()

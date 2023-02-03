@@ -17,7 +17,7 @@ def import_schedule(file_path):
 
 
 def main():
-    import_schedule('plan.pdf')
+    import_schedule('resources/plan.pdf')
 
 
 if __name__ == "__main__":
