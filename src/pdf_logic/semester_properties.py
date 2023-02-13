@@ -27,7 +27,7 @@ def get_current_semester(semester: str) -> CurrentSemester:
 
     if semester == "letni":
         current_semester_name = "UEP " + str(current_time.year - 1) + "/" + str(current_time.year) + " Summer term"
-        semester_end = str(current_time.year) + '0731'
+        semester_end = str(current_time.year) + '0630'
         d = datetime.date(current_time.year, 2, 1)
         semester_start_week = [str(next_weekday(d, 0)), str(next_weekday(d, 1)), str(next_weekday(d, 2)),
                                str(next_weekday(d, 3)), str(next_weekday(d, 4))]
