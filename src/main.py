@@ -9,6 +9,10 @@ from tkinter import messagebox, filedialog
 import tkinter as tk
 
 APP_VERSION = "1.0.0"
+# TODO
+# 1. dodac mozlwisoc nazwanie planu zajec wg wlasnego pomyslu
+# 2. dodac opcje, ze info czy to wyk czy lab jest na kocu albo na poczatku
+# 2. dodac mozliwosc dodawania przedmiotow, ktore nie sa regularne (np. przedmioty odbywajace sie co dwa tygodnie)
 
 
 def import_schedule(file_path):
