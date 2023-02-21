@@ -13,14 +13,16 @@ APP_VERSION = "1.0.0"
 # 1. dodac mozlwisoc nazwanie planu zajec wg wlasnego pomyslu
 # 2. dodac tworzenie tokena w wersjach testocyh, a na prod nie
 # 3. dodac opcje, ze info czy to wyk czy lab jest na kocu albo na poczatku
-# 4. dodac mozliwosc dodawania przedmiotow, ktore nie sa regularne (np. przedmioty odbywajace sie co dwa tygodnie)
+# 4. dodac kolor banan jako podstaowy, plus dodać możliwość ustawienia koloru
+# 5. dodac mozliwosc dodawania przedmiotow, ktore nie sa regularne (np. przedmioty odbywajace sie co dwa tygodnie)
 
 
 def import_schedule(file_path):
     pdf_file = read_pdf_file(file_path)
     if check_pdf_file(pdf_file):
         messagebox.showwarning("Uwaga",
-                               "Obecna wersja programu nie obsługuje dodawania przedmiotów, które odbywają się nieregularnie (np. przedmioty odbywające się co dwa tygodnie)."
+                               "Obecna wersja programu nie obsługuje dodawania przedmiotów, które odbywają się nieregularnie "
+                               "(np. przedmioty odbywające się co dwa tygodnie)."
                                "Takie przedmioty należy dodać ręcznie.")
         current_semester = get_current_semester(read_semester(pdf_file))
         subject_list = get_subject_list(read_week_schedule_list_from_pdf(file_path), current_semester.semester_start_week)
@@ -30,7 +32,8 @@ def import_schedule(file_path):
 
         print('--')
         service = create_service()
-        messagebox.showinfo("Sukces autoryzacji", "Gdy dodawanie się zakończy zostaniesz powiadomiony. Może to chwilę potrwać. Nie wyłączaj programu!")
+        messagebox.showinfo("Sukces autoryzacji", "Gdy dodawanie się zakończy zostaniesz powiadomiony. Może to chwilę potrwać. "
+                                                  "Nie wyłączaj programu! Aplikacja może przestać odpowiadać - to normalne.")
         if add_schedule_to_google_calendar(service, subject_list, current_semester):
             messagebox.showinfo("Sukces", "Plan zajęć został dodany do kalendarza")
     else:
