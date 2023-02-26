@@ -1,13 +1,10 @@
-name: Example Workflow
-
-on:
-  push:
-    branches: [ main ]
-
 jobs:
   example_job:
     runs-on: ubuntu-latest
+    env:
+      SECRET_VALUE: ${{ secrets.APP_CREDENTIALS }}
     steps:
-      - name: Example Step
-        env:
-          SECRET_VALUE: ${{ secrets.APP_CREDENTIALS }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Python script
+        run: python mainWorkFlowtest.py
