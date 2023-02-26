@@ -2,7 +2,7 @@ name: Example Workflow
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   example_job:
